@@ -28,8 +28,8 @@ export default {
       password: "123456",
     });
     const router = useRouter();
-    const toPage = () => {
-      router.push("/");
+    const toPage = (path:string) => {
+      router.push(path);
     };
 
     const onLogin = async () => {
@@ -39,6 +39,7 @@ export default {
         if(!accesstoken) throw(new Error('用户名或密码错误'));
         setToken(accesstoken)
         ElMessage.success("登录成功");
+        toPage('/');
       } catch (err) {
         console.log(err);
         ElMessage.error(err.message);
