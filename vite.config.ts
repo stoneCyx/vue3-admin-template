@@ -18,4 +18,12 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     }
   },
+  server: {
+    port: 4000,//启动端口
+    open: true,
+    proxy: {
+      '/api': 'http://localhost:3001/'//代理地址
+    },
+    cors: true
+  }
 })
